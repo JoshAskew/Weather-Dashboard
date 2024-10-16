@@ -6,5 +6,10 @@ const __dirname = path.dirname(__filename);
 const router = Router();
 
 // TODO: Define route to serve index.html
+//Maybe??
+router.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/index.html')); 
+  });
+  //Maybe??
 
 export default router;
