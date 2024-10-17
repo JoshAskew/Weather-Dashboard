@@ -18,16 +18,15 @@ constructor(temperature: number, humidity: number, windSpeed: number) {
   this.windSpeed = windSpeed;
   }
 }
-
 // TODO: Complete the WeatherService class
+
 class WeatherService {
 
   // TODO: Define the baseURL, API key, and city name properties
 
-  baseURL: string = 'https://api.openweathermap.org'
+  baseURL: string = 'https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}'
   apiKey: string =  process.env.API_KEY || 'd73211b0465fe97bd1c4604a46d296e4';
   city: string = '';
-
 
   // TODO: Create fetchLocationData method
 
@@ -100,6 +99,7 @@ class WeatherService {
 
   async getWeatherForCity(city: string) {
     this.city = city;
+    try {
     const coordinates = await this.fetchAndDestructureLocationData();
     const weatherData = await this.fetchWeatherData(coordinates);
     const currentWeather = this.parseCurrentWeather(weatherData);
@@ -111,6 +111,10 @@ class WeatherService {
       coordinates,
       forecastArray,
     };
+  } catch (error) {
+    console.error('Error in getWeatherForCity:', error);
+    throw new Error('Could not fetch weather data'); 
+  }
   }
 }
 
