@@ -42,7 +42,7 @@ router.delete('/history/:id', async (req, res) => {
   const { id } = req.params; // Extract city ID from request parameters
 
   try {
-    await HistoryService.removeCity(Number(id)); // Remove city using its ID
+    await HistoryService.removeCity((id)); // Remove city using its ID
     res.status(204).send(); // Respond with no content status
   } catch (error) {
     console.error('Error deleting city from search history:', error);

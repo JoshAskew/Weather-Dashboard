@@ -13,8 +13,6 @@ const PORT = process.env.PORT || 3001;
 
 app.use(express.static('../client'));
 
-app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`));
-
 // TODO: Implement middleware for parsing JSON and urlencoded form data
 
 app.use(express.json());

@@ -88,13 +88,13 @@ class WeatherService {
 
   // TODO: Complete buildForecastArray method
 
-  /*private buildForecastArray(currentWeather: Weather, weatherData: any[]) {
+  private buildForecastArray(weatherData: any[]) {
     return weatherData.map(data => new Weather(
       data.main.temp,
       data.main.humidity,
       data.wind.speed
     ));
-  }*/
+  }
 
   // TODO: Complete getWeatherForCity method
 
@@ -104,9 +104,12 @@ class WeatherService {
     const weatherData = await this.fetchWeatherData(coordinates);
     const currentWeather = this.parseCurrentWeather(weatherData);
 
+    const forecastArray = this.buildForecastArray(weatherData); 
+
     return {
       currentWeather,
       coordinates,
+      forecastArray,
     };
   }
 }
