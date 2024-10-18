@@ -51,12 +51,13 @@ class WeatherService {
   // TODO: Create destructureLocationData method
 
   private destructureLocationData(locationData: any): Coordinates {
-    if (!locationData || locationData.length === 0 || !locationData[0].coord) {
+    console.log('location data:', locationData[0].lat);
+    if (!locationData || locationData.length === 0) {
       throw new Error('Invalid location data received.');
     }
     return {
-      lat: locationData.coord[0].lat,
-      lon: locationData.coord[0].lon,
+      lat: locationData[0].lat,
+      lon: locationData[0].lon,
     };
   }
 
@@ -112,7 +113,7 @@ class WeatherService {
 
   async getWeatherForCity(cityName: string) {
     this.cityName = cityName;
-    console.log("City Name:", this.cityName); // Log the city name
+    console.log("City Name:", cityName); // Log the city name
     // ...
     try {
       const coordinates = await this.fetchAndDestructureLocationData();
@@ -135,3 +136,9 @@ class WeatherService {
 }
 
 export default new WeatherService();
+
+
+
+
+
+
