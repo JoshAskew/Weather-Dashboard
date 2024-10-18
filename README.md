@@ -32,7 +32,7 @@ This application is an example of using an API and its coorisponding KEY to retr
     ```bash
     npm run start
 ## Usage
-This application is used by going to the URL that is being hosted by Render. You can find that like here: 
+This application is used by going to the URL that is being hosted by Render. You can find that like here: https://weather-dashboard-lg0x.onrender.com/
 ## Contribution
 
 Contributions are welcome! To contribute to this project, please follow these steps:
