@@ -85,6 +85,7 @@ class WeatherService {
 
   private async fetchWeatherData(coordinates: Coordinates) {
     const query = this.buildWeatherQuery(coordinates);
+    console.log('Weather query:', query);
     const weatherData = await this.fetchLocationData(query);
     return weatherData;
   }
